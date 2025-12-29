@@ -1,0 +1,17 @@
+FROM python:3.14-slim
+
+WORKDIR /app
+
+# Copy everything that is necessary
+COPY requirements.txt .
+COPY common/ ./common/
+COPY consumer/ ./consumer/
+
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Sets the working directory for the consumer
+WORKDIR /app/consumer
+
+# Command to run
+CMD ["python", "main.py"]

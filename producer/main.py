@@ -17,20 +17,20 @@ API_KEY = os.getenv('WEATHER_KEY')
 BASE_URL = os.getenv('base_url', 'http://api.openweathermap.org/data/2.5/weather')
 KAFKA_BOOTSTRAP_SERVERS = os.getenv('KAFKA_BOOTSTRAP_SERVERS')  
 LOCATIONS_CONFIG_PATH = os.path.join(os.path.dirname(__file__),'../config/locations.json')
-PRODUCER_SLEEP_SECONDS = int(os.getenv('PRODUCER_SLEEP_SECONDS', 300))  # ✅ ALTERADO: 5 minutos padrão
-KAFKA_TOPIC = os.getenv('KAFKA_TOPIC', 'dados_brutos')
+PRODUCER_SLEEP_SECONDS = int(os.getenv('PRODUCER_SLEEP_SECONDS', 300))  # ✅ CHANGED: 5 minutes default
+KAFKA_TOPIC = os.getenv('KAFKA_TOPIC', 'raw_data')
 
 def load_locations(path):
     try: 
         with open(path, 'r', encoding='utf-8') as file:
             locations = json.load(file)
-            logger.info(f"{len(locations)} localizações carregadas de {path}.")
+            logger.info(f"{len(locations)} locations loaded with {path}.")
             return locations
     except FileNotFoundError:
-        logger.error(f"Arquivo de configuração não encontrado: {path}")
+        logger.error(f"Configuration file not found: {path}")
         return []
     except json.JSONDecodeError:
-        logger.error(f"Erro ao decodificar o arquivo JSON: {path}")
+        logger.error(f"Error decoding the file JSON: {path}")
         return []
     
 def validate_enviroment():
@@ -41,21 +41,21 @@ def validate_enviroment():
     }
     missing = [var for var, val in required_vars.items() if not val]
     if missing:
-        logger.error(f"Variáveis de ambiente ausentes: {', '.join(missing)}")
+        logger.error(f"Missing environment variables: {', '.join(missing)}")
         return False
     return True
     
 def main():
-    logger.info("Iniciando Weather Data Producer")
-    logger.info(f"Intervalo de coleta: {PRODUCER_SLEEP_SECONDS} segundos")
+    logger.info("Starting Weather Data Producer")
+    logger.info(f"Collection interval: {PRODUCER_SLEEP_SECONDS} seconds")
     
     if not validate_enviroment():
-        logging.error("Encerrado por configurações faltantes")
+        logging.error("Closed due to missing configuration settings")
         return
     
     locations = load_locations(LOCATIONS_CONFIG_PATH)
     if not locations:
-        logger.info("AVISO: Nenhum local para processar. Verifique o arquivo 'config/locations.json'. Encerrando o programa.")
+        logger.info("WARNING: No locations to process. Check the 'config/locations.json' file. Exiting the program.")
         return
     
     try:    
@@ -63,7 +63,7 @@ def main():
         kafka_client = KafkaClient()
         kafka_producer = kafka_client.create_producer()
     except Exception as e:
-        logger.error(f"Erro ao inicializar clientes: {e}")
+        logger.error(f"Error initializing clients: {e}")
         return
     
     try:
@@ -71,7 +71,7 @@ def main():
         while True:
             iteration += 1
             logger.info(f"\n{'='*60}")
-            logger.info(f"Iteração #{iteration} - Coletando dados de {len(locations)} cidades")
+            logger.info(f"Iteration #{iteration} - Collecting data from {len(locations)} cities")
             logger.info(f"{'='*60}")
             
             success_count = 0
@@ -84,7 +84,7 @@ def main():
                         error_count += 1
                         continue
                     
-                    # ✅ CORRIGIDO: Latitude e longitude agora vêm do config, não do weather_data
+                    # ✅ CORRECTED: Latitude and longitude now come from the config file, not from weather_data
                     message = {
                         "city": weather_data.get('name', loc['name']),
                         "latitude": loc["lat"],
@@ -101,26 +101,26 @@ def main():
                     success_count += 1
                     
                 except KeyError as e:
-                    logger.error(f"Erro de estrutura de dados para {loc['name']}: {e}")
+                    logger.error(f"Data structure error for {loc['name']}: {e}")
                     error_count += 1
                 except Exception as e:
-                    logger.error(f"Erro ao processar {loc['name']}: {e}")
+                    logger.error(f"Error during processing {loc['name']}: {e}")
                     error_count += 1
             
-            logger.info(f"\n📊 Resumo da iteração #{iteration}:")
-            logger.info(f"   ✅ Sucessos: {success_count}")
-            logger.info(f"   ❌ Erros: {error_count}")
-            logger.info(f"   ⏰ Próxima coleta em {PRODUCER_SLEEP_SECONDS} segundos")
+            logger.info(f"\n📊 Iteration summary #{iteration}:")
+            logger.info(f"   ✅ Successes: {success_count}")
+            logger.info(f"   ❌ Errors: {error_count}")
+            logger.info(f"   ⏰ Next collection in {PRODUCER_SLEEP_SECONDS} seconds")
             
             time.sleep(PRODUCER_SLEEP_SECONDS)
             
     except KeyboardInterrupt:
-        logger.info("\nProducer interrompido pelo usuário (Ctrl+C)")
+        logger.info("\nProducer interrupted by the user (Ctrl+C)")
     except Exception as e:
-        logger.error(f"Erro fatal no producer: {e}")
+        logger.error(f"Fatal error in the producer: {e}")
     finally:
         kafka_client.close()
-        logger.info("Producer finalizado")
+        logger.info("Producer finished")
 
 
 if __name__ == "__main__":
