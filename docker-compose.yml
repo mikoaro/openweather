@@ -98,6 +98,6 @@ networks:
 # │   └── main.py
 # ├── .env
 # ├── .gitignore
-# ├── docker-compose.yml  ← NOVO!
+# ├── docker-compose.yml  ← NEW!
 # ├── requirements.txt
-# └── schema.sql  ← NOVO!
+# └── schema.sql  ← NEW!
