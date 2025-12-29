@@ -1,0 +1,257 @@
+[
+    {
+        "name": "Montgomery",
+        "lat": 32.3777,
+        "lon": -86.3006
+    },
+    {
+        "name": "Juneau",
+        "lat": 58.3019,
+        "lon": -134.4197
+    },
+    {
+        "name": "Phoenix",
+        "lat": 33.4484,
+        "lon": -112.0740
+    },
+    {
+        "name": "Little Rock",
+        "lat": 34.7465,
+        "lon": -92.2896
+    },
+    {
+        "name": "Sacramento",
+        "lat": 38.5816,
+        "lon": -121.4944
+    },
+    {
+        "name": "Denver",
+        "lat": 39.7392,
+        "lon": -104.9903
+    },
+    {
+        "name": "Hartford",
+        "lat": 41.7637,
+        "lon": -72.6851
+    },
+    {
+        "name": "Dover",
+        "lat": 39.1582,
+        "lon": -75.5244
+    },
+    {
+        "name": "Washington, D.C.",
+        "lat": 38.9072,
+        "lon": -77.0369
+    },
+    {
+        "name": "Tallahassee",
+        "lat": 30.4383,
+        "lon": -84.2807
+    },
+    {
+        "name": "Atlanta",
+        "lat": 33.7490,
+        "lon": -84.3880
+    },
+    {
+        "name": "Honolulu",
+        "lat": 21.3069,
+        "lon": -157.8583
+    },
+    {
+        "name": "Boise",
+        "lat": 43.6150,
+        "lon": -116.2023
+    },
+    {
+        "name": "Springfield",
+        "lat": 39.7817,
+        "lon": -89.6501
+    },
+    {
+        "name": "Indianapolis",
+        "lat": 39.7684,
+        "lon": -86.1581
+    },
+    {
+        "name": "Des Moines",
+        "lat": 41.5868,
+        "lon": -93.6250
+    },
+    {
+        "name": "Topeka",
+        "lat": 39.0473,
+        "lon": -95.6752
+    },
+    {
+        "name": "Frankfort",
+        "lat": 38.2009,
+        "lon": -84.8733
+    },
+    {
+        "name": "Baton Rouge",
+        "lat": 30.4515,
+        "lon": -91.1871
+    },
+    {
+        "name": "Augusta",
+        "lat": 44.3106,
+        "lon": -69.7795
+    },
+    {
+        "name": "Annapolis",
+        "lat": 38.9784,
+        "lon": -76.4922
+    },
+    {
+        "name": "Boston",
+        "lat": 42.3601,
+        "lon": -71.0589
+    },
+    {
+        "name": "Lansing",
+        "lat": 42.7325,
+        "lon": -84.5555
+    },
+    {
+        "name": "Saint Paul",
+        "lat": 44.9537,
+        "lon": -93.0900
+    },
+    {
+        "name": "Jackson",
+        "lat": 32.2988,
+        "lon": -90.1848
+    },
+    {
+        "name": "Jefferson City",
+        "lat": 38.5767,
+        "lon": -92.1735
+    },
+    {
+        "name": "Helena",
+        "lat": 46.5891,
+        "lon": -112.0391
+    },
+    {
+        "name": "Lincoln",
+        "lat": 40.8136,
+        "lon": -96.7026
+    },
+    {
+        "name": "Carson City",
+        "lat": 39.1638,
+        "lon": -119.7674
+    },
+    {
+        "name": "Concord",
+        "lat": 43.2081,
+        "lon": -71.5376
+    },
+    {
+        "name": "Trenton",
+        "lat": 40.2170,
+        "lon": -74.7429
+    },
+    {
+        "name": "Santa Fe",
+        "lat": 35.6870,
+        "lon": -105.9378
+    },
+    {
+        "name": "Albany",
+        "lat": 42.6526,
+        "lon": -73.7562
+    },
+    {
+        "name": "Raleigh",
+        "lat": 35.7796,
+        "lon": -78.6382
+    },
+    {
+        "name": "Bismarck",
+        "lat": 46.8083,
+        "lon": -100.7837
+    },
+    {
+        "name": "Columbus",
+        "lat": 39.9612,
+        "lon": -82.9988
+    },
+    {
+        "name": "Oklahoma City",
+        "lat": 35.4676,
+        "lon": -97.5164
+    },
+    {
+        "name": "Salem",
+        "lat": 44.9429,
+        "lon": -123.0351
+    },
+    {
+        "name": "Harrisburg",
+        "lat": 40.2732,
+        "lon": -76.8867
+    },
+    {
+        "name": "Providence",
+        "lat": 41.8240,
+        "lon": -71.4128
+    },
+    {
+        "name": "Columbia",
+        "lat": 34.0007,
+        "lon": -81.0348
+    },
+    {
+        "name": "Pierre",
+        "lat": 44.3683,
+        "lon": -100.3510
+    },
+    {
+        "name": "Nashville",
+        "lat": 36.1627,
+        "lon": -86.7816
+    },
+    {
+        "name": "Austin",
+        "lat": 30.2672,
+        "lon": -97.7431
+    },
+    {
+        "name": "Salt Lake City",
+        "lat": 40.7608,
+        "lon": -111.8910
+    },
+    {
+        "name": "Montpelier",
+        "lat": 44.2601,
+        "lon": -72.5754
+    },
+    {
+        "name": "Richmond",
+        "lat": 37.5407,
+        "lon": -77.4360
+    },
+    {
+        "name": "Olympia",
+        "lat": 47.0379,
+        "lon": -122.9007
+    },
+    {
+        "name": "Charleston",
+        "lat": 38.3498,
+        "lon": -81.6326
+    },
+    {
+        "name": "Madison",
+        "lat": 43.0731,
+        "lon": -89.4012
+    },
+    {
+        "name": "Cheyenne",
+        "lat": 41.1400,
+        "lon": -104.8202
+    }
+]
